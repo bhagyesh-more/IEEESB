@@ -1,1 +1,73 @@
+# ==========================================
+# MMIT IEEE Student Branch Platform 2.0
+# Monorepo Security .gitignore
+# ==========================================
+
+# 1. Monorepo Dependencies & Package Managers
+node_modules/
+.pnpm-store/
+.yarn/
+package-lock.json.log
+
+# 2. Build Outputs & Compiled Code
+.next/
+out/
+dist/
+build/
+*.tsbuildinfo
+.turbo/
+.vercel/
+
+# 3. Environment Variables & Secret Files (CRITICAL: NEVER COMMIT)
+.env
+.env.*
+!.env.example
+*.env
+atlas-credentials.env
+
+# 4. Certificates, Keys & Private Tokens
+*.pem
+*.key
+*.p12
+*.crt
+*.cer
+
+# 5. Logs, Temp & Upload Directories
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+logs/
+uploads/
+temp/
+tmp/
+
+# 6. IDE & Code Editor Configurations
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+
+# 7. Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# 8. Testing & Coverage Outputs
+coverage/
+.nyc_output/
+cypress/videos/
+cypress/screenshots/
+.playwright/
+
+# 9. Project-Specific Scratch Content & Internal Screenshots
 PLAN.md
+CONTENT/
