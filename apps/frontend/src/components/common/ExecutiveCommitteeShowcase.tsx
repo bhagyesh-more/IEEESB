@@ -14,24 +14,62 @@ import { UserCheck, ArrowRight, Loader2, Linkedin } from "lucide-react";
 const fallbackMembers = [
   {
     _id: "fb-1",
-    name: "Dr. Faculty Counselor",
-    designation: "Branch Counselor",
+    name: "Dr Monika Dangore",
+    designation: "IEEE Student Branch Counsellor",
     avatarUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&auto=format&fit=crop&q=80",
     bio: "Faculty advisor guiding overall student branch strategy, research publications, and IEEE Region 10 governance.",
   },
   {
     _id: "fb-2",
-    name: "Student Branch Chair",
-    designation: "Chairperson",
+    name: "Sankalp Indish",
+    designation: "Branch Chair",
     avatarUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=80",
     bio: "Chief student executive overseeing annual event roadmaps, chapter leads, and IEEE Pune Section collaborations.",
   },
   {
     _id: "fb-3",
-    name: "Vice Chair & Secretary",
-    designation: "Executive Vice Chair",
+    name: "Soham Shinde",
+    designation: "Branch Vice Chair",
     avatarUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80",
-    bio: "Directing operational activities, member onboarding, meeting documentations, and inter-chapter coordination.",
+    socialLinks: { linkedin: "https://www.linkedin.com/in/soham-shinde-99046127a/" },
+    bio: "Directing operational activities, member onboarding, and inter-chapter coordination.",
+  },
+  {
+    _id: "fb-4",
+    name: "Maithilee Kedare",
+    designation: "Student Branch Secretary",
+    avatarUrl: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&auto=format&fit=crop&q=80",
+    socialLinks: { linkedin: "https://www.linkedin.com/in/maithileekedare/" },
+    bio: "Managing official branch documentation, meeting proceedings, and IEEE reporting.",
+  },
+  {
+    _id: "fb-5",
+    name: "Tanmayi Gadge",
+    designation: "Student Branch Joint Secretary",
+    avatarUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=80",
+    socialLinks: { linkedin: "https://www.linkedin.com/in/tanmayi-gadge-854723276/" },
+    bio: "Assisting branch communications, membership drives, and event logistics.",
+  },
+  {
+    _id: "fb-6",
+    name: "Gargi Shinde",
+    designation: "Student Branch Treasurer",
+    avatarUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&auto=format&fit=crop&q=80",
+    bio: "Managing financial allocation, event budgets, and sponsorship accounts.",
+  },
+  {
+    _id: "fb-7",
+    name: "Satyam Patil",
+    designation: "Student Branch Web Master",
+    avatarUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&auto=format&fit=crop&q=80",
+    bio: "Engineering technical web applications and digital infrastructure.",
+  },
+  {
+    _id: "fb-8",
+    name: "Geet Jamdal",
+    designation: "Student Branch Web Master",
+    avatarUrl: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&auto=format&fit=crop&q=80",
+    bio: "Developing web platforms, user interfaces, and online media deployment.",
   },
 ];
 
@@ -48,7 +86,7 @@ export const ExecutiveCommitteeShowcase: React.FC = () => {
     },
   });
 
-  const displayList = members.length > 0 ? members.slice(0, 6) : fallbackMembers;
+  const displayList = members.length > 0 ? members.slice(0, 8) : fallbackMembers;
 
   return (
     <section id="executive-committee" className="container mx-auto px-4 md:px-8 space-y-10 scroll-mt-24">
@@ -61,7 +99,7 @@ export const ExecutiveCommitteeShowcase: React.FC = () => {
           Executive Committee Members
         </h2>
         <p className="text-slate-400 max-w-xl mx-auto text-sm">
-          Meet the student members, team leads, and faculty advisors managing student branch activities, technical chapters, and IEEE Pune Section collaborations.
+          Meet the student leaders, team leads, and faculty counselors directing activities at MMIT IEEE Student Branch.
         </p>
       </ScrollReveal>
 
@@ -70,9 +108,9 @@ export const ExecutiveCommitteeShowcase: React.FC = () => {
           <Loader2 className="h-8 w-8 animate-spin text-sky-400" />
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {displayList.map((member: any, index: number) => (
-            <ScrollReveal key={member._id || index} direction="up" delay={index * 0.1}>
+            <ScrollReveal key={member._id || index} direction="up" delay={index * 0.05}>
               <GlassCard className="space-y-4 p-6 hover:border-sky-500/40 transition-all text-center h-full flex flex-col justify-between">
                 <div className="space-y-4">
                   <Avatar
