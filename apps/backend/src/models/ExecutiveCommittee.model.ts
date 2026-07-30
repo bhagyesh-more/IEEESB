@@ -3,7 +3,8 @@ import mongoose, { Schema, Document } from "mongoose";
 export interface IExecutiveCommittee extends Document {
   name: string;
   designation: string;
-  category: "OFFICER" | "FACULTY" | "LEAD" | "MENTOR";
+  category: "MEMBER" | "FACULTY" | "LEAD" | "MENTOR";
+  isExecutive: boolean;
   bio?: string;
   avatarUrl: string;
   displayOrder: number;
@@ -34,8 +35,12 @@ const ExecutiveCommitteeSchema: Schema = new Schema(
     },
     category: {
       type: String,
-      enum: ["OFFICER", "FACULTY", "LEAD", "MENTOR"],
-      default: "OFFICER",
+      enum: ["MEMBER", "FACULTY", "LEAD", "MENTOR"],
+      default: "MEMBER",
+    },
+    isExecutive: {
+      type: Boolean,
+      default: true,
     },
     bio: {
       type: String,
@@ -73,7 +78,7 @@ const ExecutiveCommitteeSchema: Schema = new Schema(
   }
 );
 
-ExecutiveCommitteeSchema.index({ academicYear: -1, displayOrder: 1 });
+ExecutiveCommitteeSchema.index({ academicYear: -1, isExecutive: -1, displayOrder: 1 });
 
 export const ExecutiveCommittee = mongoose.model<IExecutiveCommittee>(
   "ExecutiveCommittee",

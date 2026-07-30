@@ -33,8 +33,8 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/committee" className="hover:text-sky-400 transition-colors">
-                  Executive Committee
+                <Link href="/members" className="hover:text-sky-400 transition-colors">
+                  Executive Committee & Members
                 </Link>
               </li>
               <li>

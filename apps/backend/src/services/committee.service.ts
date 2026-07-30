@@ -3,16 +3,18 @@ import { NotFoundError } from "../errors/AppError";
 import { AuditLog } from "../models/AuditLog.model";
 
 export class CommitteeService {
-  static async getAllMembers(academicYear?: string) {
+  static async getAllMembers(academicYear?: string, isExecutive?: boolean) {
     const filter: any = {};
     if (academicYear) filter.academicYear = academicYear;
+    if (typeof isExecutive === "boolean") filter.isExecutive = isExecutive;
 
-    return ExecutiveCommittee.find(filter).sort({ displayOrder: 1, name: 1 });
+    return ExecutiveCommittee.find(filter).sort({ isExecutive: -1, displayOrder: 1, name: 1 });
   }
 
   static async createMember(input: any, userId: string, userName?: string) {
     const member = await ExecutiveCommittee.create({
       ...input,
+      isExecutive: input.isExecutive ?? true,
       isActive: input.isActive ?? true,
     });
 

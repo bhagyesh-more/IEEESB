@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { Role } from "../models/Role.model";
+import { User } from "../models/User.model";
 import { createRoleSchema, UserRole } from "@mmit-ieee/shared";
 import { asyncHandler } from "../utils/asyncHandler";
 import { sendResponse } from "../utils/response";
@@ -17,6 +18,16 @@ export class RoleController {
       statusCode: 200,
       message: "Roles fetched successfully",
       data: roles,
+    });
+  });
+
+  static getUsers = asyncHandler(async (req: Request, res: Response) => {
+    const users = await User.find().select("-passwordHash").populate("role").sort({ createdAt: -1 });
+    return sendResponse({
+      res,
+      statusCode: 200,
+      message: "Users fetched successfully",
+      data: users,
     });
   });
 
@@ -41,10 +52,12 @@ export class RoleController {
     if (req.user) {
       await AuditLog.create({
         userId: req.user.id,
+        userName: req.user.name,
         action: "ROLE_CREATED",
-        targetResource: `Role:${role._id}`,
+        entity: "Role",
+        entityId: role._id.toString(),
         ipAddress: req.ip || "127.0.0.1",
-        details: { roleName: role.name },
+        changes: { roleName: role.name, permissions: role.permissions },
       });
     }
 
@@ -53,6 +66,47 @@ export class RoleController {
       statusCode: 201,
       message: `Role '${role.name}' created successfully`,
       data: role,
+    });
+  });
+
+  static assignUserRole = asyncHandler(async (req: AuthenticatedRequest, res: Response) => {
+    const { email, roleId } = req.body;
+    if (!email || !roleId) {
+      throw new BadRequestError("Email and roleId are required");
+    }
+
+    const user = await User.findOne({ email: email.toLowerCase().trim() });
+    if (!user) {
+      throw new NotFoundError(`No user account found matching email '${email}'`);
+    }
+
+    const role = await Role.findById(roleId);
+    if (!role) {
+      throw new NotFoundError("Selected target role was not found");
+    }
+
+    user.role = role._id;
+    await user.save();
+
+    if (req.user) {
+      await AuditLog.create({
+        userId: req.user.id,
+        userName: req.user.name,
+        action: "ROLE_ASSIGNED_TO_USER",
+        entity: "User",
+        entityId: user._id.toString(),
+        ipAddress: req.ip || "127.0.0.1",
+        changes: { userEmail: user.email, assignedRole: role.name },
+      });
+    }
+
+    const updatedUser = await User.findById(user._id).select("-passwordHash").populate("role");
+
+    return sendResponse({
+      res,
+      statusCode: 200,
+      message: `Role '${role.name}' assigned to '${user.email}' successfully`,
+      data: updatedUser,
     });
   });
 
@@ -73,10 +127,12 @@ export class RoleController {
     if (req.user) {
       await AuditLog.create({
         userId: req.user.id,
+        userName: req.user.name,
         action: "ROLE_DELETED",
-        targetResource: `Role:${id}`,
+        entity: "Role",
+        entityId: id,
         ipAddress: req.ip || "127.0.0.1",
-        details: { roleName: role.name },
+        changes: { roleName: role.name },
       });
     }
 

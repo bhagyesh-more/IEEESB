@@ -14,10 +14,11 @@ interface NavLink {
 
 const publicNavLinks: NavLink[] = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Executive Committee", href: "/committee" },
+  { name: "Executive Committee", href: "/#executive-committee" },
+  { name: "Members", href: "/members" },
   { name: "Events", href: "/events" },
   { name: "Gallery", href: "/gallery" },
+  { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
 

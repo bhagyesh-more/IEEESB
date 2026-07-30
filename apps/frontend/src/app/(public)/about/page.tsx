@@ -115,7 +115,7 @@ export default function AboutPage() {
               <Users className="h-8 w-8 text-sky-300" />
               <h3 className="font-bold text-white text-lg">Leadership Development</h3>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Empowering student officers to manage events, budgets, and teams.
+                Empowering student members to manage events, budgets, and teams.
               </p>
             </GlassCard>
           </ScrollReveal>

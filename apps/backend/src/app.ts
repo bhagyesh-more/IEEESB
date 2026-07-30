@@ -76,6 +76,17 @@ if (env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 
+// Health Check & Root Route
+app.get(["/", "/health"], (req, res) => {
+  res.status(200).json({
+    success: true,
+    statusCode: 200,
+    message: "MMIT IEEE Student Branch Backend API is online and healthy 🚀",
+    version: "1.0.0",
+    timestamp: new Date().toISOString(),
+  });
+});
+
 // Swagger Visual API Documentation Explorer
 app.use("/api-docs", docsRoutes);
 

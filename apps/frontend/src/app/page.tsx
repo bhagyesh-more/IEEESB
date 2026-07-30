@@ -6,8 +6,9 @@ import { ScrollReveal } from "@/components/animated/ScrollReveal";
 import { GlassCard } from "@/components/animated/GlassCard";
 import { AnimatedCounter } from "@/components/animated/AnimatedCounter";
 import { HeroCarousel } from "@/components/common/HeroCarousel";
+import { ExecutiveCommitteeShowcase } from "@/components/common/ExecutiveCommitteeShowcase";
 import { VantaNetBackground } from "@/components/animated/VantaNetBackground";
-import { ArrowRight, Calendar, Users, Trophy, Sparkles, Shield, Rocket, UserCheck, Star } from "lucide-react";
+import { ArrowRight, Sparkles, Shield, Rocket } from "lucide-react";
 
 export default function HomePage() {
   return (
@@ -102,71 +103,8 @@ export default function HomePage() {
         </ScrollReveal>
       </section>
 
-      {/* Executive Committee Roles & Officer Designations Showcase */}
-      <section className="container mx-auto px-4 md:px-8 space-y-10">
-        <ScrollReveal direction="up" delay={0.1} className="text-center space-y-3">
-          <Badge variant="ieee" className="px-3.5 py-1 text-xs gap-1.5">
-            <UserCheck className="h-3.5 w-3.5 text-sky-400" />
-            <span>Branch Leadership</span>
-          </Badge>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">
-            Executive Committee Officer Roles
-          </h2>
-          <p className="text-slate-400 max-w-xl mx-auto text-sm">
-            Meet the student officers and faculty advisors managing student branch activities, technical chapters, and IEEE Pune Section collaborations.
-          </p>
-        </ScrollReveal>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <ScrollReveal direction="up" delay={0.2}>
-            <GlassCard className="space-y-3 p-6 hover:border-sky-500/40 transition-all">
-              <div className="flex items-center justify-between">
-                <Badge variant="ieee" className="text-xs">Faculty Role</Badge>
-                <Star className="h-4 w-4 text-amber-400" />
-              </div>
-              <h3 className="text-xl font-bold text-white">Branch Counselor</h3>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Faculty advisor guiding overall student branch strategy, research publications, and IEEE Region 10 governance.
-              </p>
-            </GlassCard>
-          </ScrollReveal>
-
-          <ScrollReveal direction="up" delay={0.3}>
-            <GlassCard className="space-y-3 p-6 hover:border-sky-500/40 transition-all">
-              <div className="flex items-center justify-between">
-                <Badge variant="secondary" className="text-xs">Executive Leadership</Badge>
-                <Shield className="h-4 w-4 text-sky-400" />
-              </div>
-              <h3 className="text-xl font-bold text-white">Student Branch Chair</h3>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Chief student executive overseeing annual event roadmaps, chapter leads, and IEEE Pune Section meetings.
-              </p>
-            </GlassCard>
-          </ScrollReveal>
-
-          <ScrollReveal direction="up" delay={0.4}>
-            <GlassCard className="space-y-3 p-6 hover:border-sky-500/40 transition-all">
-              <div className="flex items-center justify-between">
-                <Badge variant="secondary" className="text-xs">Executive Leadership</Badge>
-                <Users className="h-4 w-4 text-blue-400" />
-              </div>
-              <h3 className="text-xl font-bold text-white">Vice Chair & Secretary</h3>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Directing operational activities, member onboarding, meeting documentations, and inter-chapter coordination.
-              </p>
-            </GlassCard>
-          </ScrollReveal>
-        </div>
-
-        <div className="text-center pt-2">
-          <Link href="/committee">
-            <Button variant="outline" className="gap-2">
-              <span>View Full Executive Roster</span>
-              <ArrowRight className="h-4 w-4" />
-            </Button>
-          </Link>
-        </div>
-      </section>
+      {/* Dynamic Executive Committee Members Showcase */}
+      <ExecutiveCommitteeShowcase />
 
       {/* Feature Highlights Grid with Secondary Themed Vanta Background */}
       <section className="container mx-auto px-4 md:px-8">

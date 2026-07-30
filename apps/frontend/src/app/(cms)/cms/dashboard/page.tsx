@@ -94,7 +94,7 @@ export default function CMSDashboardPage() {
               <Users className="h-5 w-5" />
             </div>
             <h3 className="text-lg font-bold text-white">Executive Committee</h3>
-            <p className="text-xs text-slate-400">Update officer profiles, designations, and ordering.</p>
+            <p className="text-xs text-slate-400">Update member profiles, designations, and ordering.</p>
           </GlassCard>
         </Link>
 

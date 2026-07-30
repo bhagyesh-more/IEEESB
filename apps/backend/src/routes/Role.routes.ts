@@ -10,7 +10,9 @@ router.use(authGuard);
 router.use(requirePermissions(PERMISSIONS.ROLES_MANAGE));
 
 router.get("/", RoleController.getRoles);
+router.get("/users", RoleController.getUsers);
 router.post("/", RoleController.createRole);
+router.post("/assign-user", RoleController.assignUserRole);
 router.delete("/:id", RoleController.deleteRole);
 
 export default router;

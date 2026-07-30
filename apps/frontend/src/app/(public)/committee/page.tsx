@@ -7,7 +7,7 @@ import { Avatar } from "@/components/ui/avatar";
 import { GlassCard } from "@/components/animated/GlassCard";
 import { HeroEntrance } from "@/components/animated/HeroEntrance";
 import { ScrollReveal } from "@/components/animated/ScrollReveal";
-import { Linkedin, Github, Mail, ShieldCheck, Loader2 } from "lucide-react";
+import { Linkedin, Github, Mail, Loader2 } from "lucide-react";
 
 export default function CommitteePage() {
   const [members, setMembers] = useState<any[]>([]);
@@ -64,20 +64,17 @@ export default function CommitteePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {members.map((member, index) => (
               <ScrollReveal key={member._id} direction="up" delay={index * 0.1}>
-                <GlassCard className="text-center space-y-4 p-6">
+                <GlassCard className="text-center space-y-4 p-6 hover:border-sky-500/40 transition-all">
                   <Avatar
                     src={member.avatarUrl}
                     alt={member.name}
-                    fallback={member.name.substring(0, 2).toUpperCase()}
+                    fallback={member.name ? member.name.substring(0, 2).toUpperCase() : "EX"}
                     className="h-24 w-24 mx-auto border-2 border-sky-500/40 shadow-lg shadow-sky-500/10"
                   />
 
                   <div className="space-y-1">
                     <h3 className="text-xl font-bold text-white">{member.name}</h3>
                     <p className="text-sm font-semibold text-sky-400">{member.designation}</p>
-                    <Badge variant="secondary" className="text-xs">
-                      {member.category}
-                    </Badge>
                   </div>
 
                   {member.bio && (

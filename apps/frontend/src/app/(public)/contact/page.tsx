@@ -84,7 +84,7 @@ export default function ContactPage() {
                   <CheckCircle2 className="h-12 w-12 text-emerald-400 mx-auto" />
                   <h3 className="text-xl font-bold text-white">Message Sent Successfully!</h3>
                   <p className="text-sm text-slate-400 max-w-sm mx-auto">
-                    Thank you for reaching out. An IEEE student officer will respond to your inquiry shortly.
+                    Thank you for reaching out. An IEEE student branch representative will respond to your inquiry shortly.
                   </p>
                 </div>
               ) : (

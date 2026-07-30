@@ -16,7 +16,7 @@
 - [🔑 Section 2: Site Manager CMS Operating Manual](#-section-2-site-manager-cms-operating-manual)
   - [2.1 Accessing the CMS Governance Portal](#21-accessing-the-cms-governance-portal)
   - [2.2 Managing Landing Page Hero Slideshow](#22-managing-landing-page-hero-slideshow)
-  - [2.3 Managing Executive Committee Officers & Roles](#23-managing-executive-committee-officers--roles)
+  - [2.3 Managing Executive Committee Members & Roles](#23-managing-executive-committee-members--roles)
   - [2.4 Role-Based Access Control (RBAC) & Permissions](#24-role-based-access-control-rbac--permissions)
   - [2.5 Managing Technical Events & Workshops](#25-managing-technical-events--workshops)
   - [2.6 Announcements & Urgent Ticker Alerts](#26-announcements--urgent-ticker-alerts)
@@ -168,24 +168,24 @@ The landing page slideshow uses a **50/50 Split Layout** (Headline description o
 
 ---
 
-### 2.3 Managing Executive Committee Officers & Roles
+### 2.3 Managing Executive Committee Members & Roles
 
 Location: **CMS Dashboard → Committee (`/cms/committee`)**
 
 Manage student branch leadership displayed on the public **Executive Committee Roster** (`/committee`) and landing page leadership section.
 
-#### To Add an Officer:
+#### To Add a Member:
 1. Navigate to `/cms/committee`.
 2. Fill in:
    - **Full Name**: e.g., *Student Leader Name*
    - **Designation / Role**: e.g., *Student Branch Chair*, *Vice Chair*, *Secretary*, *Treasurer*, *Webmaster*
-   - **Category**: Select `OFFICER`, `FACULTY`, `LEAD`, or `MENTOR`
+   - **Category**: Select `MEMBER`, `FACULTY`, `LEAD`, or `MENTOR`
    - **Profile Photo**: Upload an image file or paste an image URL.
    - **Short Bio**: Brief introduction.
 3. Click **Add Member**.
 
-#### To Delete an Officer:
-* Click the trash icon next to the officer record.
+#### To Delete a Member:
+* Click the trash icon next to the member record.
 
 ---
 

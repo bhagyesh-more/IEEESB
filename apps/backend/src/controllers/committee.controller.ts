@@ -7,7 +7,11 @@ import { AuthenticatedRequest } from "../middlewares/authGuard";
 export class CommitteeController {
   static getMembers = asyncHandler(async (req: Request, res: Response) => {
     const year = req.query.year as string;
-    const members = await CommitteeService.getAllMembers(year);
+    const isExecQuery = req.query.isExecutive;
+    const isExecutive =
+      isExecQuery === "true" ? true : isExecQuery === "false" ? false : undefined;
+
+    const members = await CommitteeService.getAllMembers(year, isExecutive);
     return sendResponse({
       res,
       statusCode: 200,

@@ -70,7 +70,7 @@ export type RegisterInput = z.infer<typeof registerSchema>;
 // --- Role Management Schemas ---
 export const createRoleSchema = z.object({
   name: z.string().min(2, "Role name must be at least 2 characters"),
-  description: z.string().min(5, "Description must be at least 5 characters"),
+  description: z.string().min(2, "Description must be at least 2 characters"),
   permissions: z.array(z.string()).min(1, "Select at least one permission"),
 });
 
